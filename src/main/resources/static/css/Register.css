@@ -1,0 +1,52 @@
+input::-webkit-input-placeholder{
+    color: rgb(151,15,15);
+}
+
+
+.first{
+    width: 500px;
+    height: 450px;
+    margin-bottom: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+    border: solid black 1px;
+    border-radius: 30px;
+}
+
+.first-1{
+    width: 500px;
+    height: 50px;
+}
+.first-2{
+    width: 400px;
+    height: 400px;   
+   
+}
+
+.first-2>form>input{
+    margin-left: 30px;
+    border-color:  	#C0C0C0 ;
+    border-radius: 50px; 
+    width: 200px;
+    height: 25px;
+    margin-top: 5px;
+    text-align:center;
+}
+
+.first-2>form span{
+    margin-left: 10px;
+}
+.but{
+    width: 180px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.but input{
+    width: 50px;
+    height: 35px;
+    margin-left: 30px;
+    float: left;
+    border-color: #C0C0C0 ;
+    border-radius: 50px; 
+}

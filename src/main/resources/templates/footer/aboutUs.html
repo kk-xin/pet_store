@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录页面</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/amazeui.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/petshow.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/animate.min.css'}">
+  <script th:src="@{'/js/jquery.min.js'}"></script>
+  <script th:src="@{'/js/amazeui.min.js'}"></script>
+  <script th:src="@{'/js/amazeui.js'}"></script>
+  <!--  <script th:src="@{'/js/countUp.min.js'}"></script>-->
+  <script th:src="@{'/js/petshow.js'}"></script>
+  <script th:src="@{'/js/md5.min.js'}"></script>
+  <!------------ Owl-Carousel ------------>
+  <script th:src="@{'/js/owl.carousel.min.js'}"></script>
+  <!--------------------- AOS js Library---------------->
+  <script th:src="@{'/js/aos.js'}"></script>
+  <!--Custom Javascript file-->
+  <script th:src="@{'/js/main.js'}"></script>
+  <!--------------------- login---------------->
+  <script th:src="@{'/js/login.js'}"></script>
+  <script th:src="@{'/js/amazeui.lazyload.min.js'}"></script>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/main.css'}">
+  <style>
+    .midlle_one{
+      width:610px;
+      height: 250px;
+      margin: 0 auto;
+    }
+    .midlle_one table{
+      border: gray solid 0.1px;
+      width: 600px;
+      height: 150px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .midlle_one table td{
+      text-align: center;
+    }
+
+    .midlle{
+      width:  840px;
+      height: 300px;
+      margin-top: 50px;
+      padding-top: 50px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/resume.css'}">
+
+  <!-- Font Awesome Icons-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/all.css'}">
+
+  <!------------ Owl-Carousel ------------>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.carousel.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.theme.default.min.css'}">
+
+
+  <!--------------------- AOS Library---------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/aos.css'}">
+
+  <!--Custom Style-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/Style.css'}">
+
+  <!------------- Login -------------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/style2.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/iconfont.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/resume.css'}">
+
+  <!-- Font Awesome Icons-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/all.css'}">
+
+  <!------------ Owl-Carousel ------------>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.carousel.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.theme.default.min.css'}">
+
+
+  <!--------------------- AOS Library---------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/aos.css'}">
+
+  <!--Custom Style-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/Style.css'}">
+
+  <!------------- Login -------------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/style2.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/iconfont.css'}">
+
+</head>
+<body style="position: absolute;width: 100%;">
+
+<div class="am-g bdfw_nr">
+
+  <div class="am-u-sm-12">
+    <div class="bdfw_nr_block">
+      <div class="bdfw_nr_block_l">
+        <div class="bdfw_nr_title">宠物管理商城</div>
+        <div class="bdfw_nr_brief_info">
+          <span class="bdfw_nr_brief_star"><img th:src="${'img/xx.png'}" alt=""><img th:src="@{'img/xx.png'}" alt=""><img th:src="@{'img/xx.png'}" alt=""><img th:src="@{'img/xx.png'}" alt=""><img th:src="@{'img/xx.png'}" alt=""></span>
+          <span class="bdfw_nr_brief_moreinfo">分类：宠物管理</span>
+        </div>
+        <div class="bdfw_nr_brief_address">地址：山的那边海的那边</div>
+        <div class="bdfw_nr_brief_address">电话：9090980</div>
+        <div class="bdfw_nr_smalltitle"><a href=""> 更多信息</a></div>
+        <div class="bdfw_nr_brief_info_nr">
+          <div class="bdfw_nr_brief_info_nr">
+            <span>周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 边：</span>
+            <span>星空</span>
+            <span>撒哈拉沙漠</span>
+          </div>
+          <div class="bdfw_nr_brief_info_nr">
+            <span>营业时间：</span>
+            <span>除周三外10:00-20:00 周三为休店日</span>
+          </div>
+          <div class="bdfw_nr_brief_info_nr">
+            <span>发展历程：</span>
+            <span>50年老店，历史悠久</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="bdfw_nr_block_r">
+        <a href="###"><img th:src="${'img/c.png'}" alt=""></a>
+        <div class="bdfw_nr_block_r_info">
+          <span><i class="am-icon-camera"></i> 店铺照片（12）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+</body>
+</html>

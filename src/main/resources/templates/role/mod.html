@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>角色管理-修改角色信息</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{'/bootstrap/css/bootstrap.css'}">
+    <script type="text/javascript" th:src="@{'/js/jquery-3.6.0.js'}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#save").click(function () {
+                var id = $("[name='id']").val();
+                var name = $("[name='name']").val();
+                var code = $("[name='code']").val();
+                var permissions = $("[name=permissions]").val();
+                var permissionsParam = "";
+                for (var i = 0; i < permissions.length; i++) {
+                    permissionsParam += "&permissions[" + i + "].id=" + permissions[i]
+                }
+                var url = encodeURI("mod1?id=" + id + "name=" + name + "&code=" + code + permissionsParam, "utf-8");
+                location.href = url;
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div id="container">
+
+    <ol class="breadcrumb">
+        <li><a th:href="@{/index}" target="_parent">首页</a></li>
+        <li><a th:href="@{search}">角色管理</a></li>
+        <li class="active">修改角色信息</li>
+    </ol>
+
+
+    <form action="mod1" class="form-horizontal">
+        <input type="hidden" name="id" th:value="${role.id}"/>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="roleName">角色名</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="roleName"
+                       name="name"
+                       placeholder="角色名" th:value="${role.name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="roleCode">code</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="roleCode"
+                       name="code" placeholder="code" th:value="${role.code}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="permissions">权限</label>
+            <div class="col-sm-10">
+                <select name="permissions" multiple class="form-control"
+                        id="permissions"
+                        th:size="${permissionList.size()}">
+                    <option th:each="permission:${permissionList}"
+                            th:value="${permission.id}"
+                            th:text="${permission.name}"
+                            th:selected="${(role.permissions.![id]).contains(permission.id)}?true:false"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">保 存</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+</body>
+</html>

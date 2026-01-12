@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>部门管理</title>
+
+    <link rel="stylesheet" th:href="@{'/bootstrap/css/bootstrap.css'}">
+    <link rel="stylesheet" th:href="@{'/css/style.css'}">
+    <script type="text/javascript" th:src="@{'/js/jquery-3.6.0.js'}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#add").click(function () {
+                location.href = "add";
+            })
+            var id = -1;
+            $(".data").click(function () {
+                $(".data").removeClass("selected");
+                $(this).addClass("selected");
+                id = $(this).data("id");
+            })
+
+            $("#mod").click(function () {
+                if (id > -1) {
+                    location.href = "mod?id=" + id;
+                } else {
+                    alert("未选中数据");
+                }
+            })
+
+            $("#del").click(function () {
+                if (id > -1) {
+                    location.href = "del?id=" + id;
+                } else {
+                    alert("未选中数据");
+                }
+            })
+
+        })
+
+    </script>
+
+</head>
+<body>
+
+
+<ol class="breadcrumb">
+    <li><a th:href="@{'/index'}" target="_parent">首页</a></li>
+    <li class="active">部门管理</li>
+</ol>
+
+
+<form id="search" action="search" method="post" class="form-inline">
+    <div class="form-group">
+        <label class="sr-only" for="inputNumber">编号</label>
+        <input type="text" id="inputNumber" name="number" placeholder="编号"
+               th:value="${c.number}" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="inputName"></label>
+        <input type="text" id="inputName" name="name" placeholder="名称"
+               th:value="${c.name}" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-primary">搜索</button>
+    <button type="reset" class="btn btn-primary">重置</button>
+</form>
+
+
+<div id="container">
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>序号</th>
+            <th>编号</th>
+            <th>名称</th>
+        </tr>
+        <tr class="data" th:each="dep,s:${pageInfo.content}"
+            th:data-id="${dep.id}">
+            <td th:text="${s.count}"></td>
+            <td th:text="${dep.number}"></td>
+            <td th:text="${dep.name}"></td>
+        </tr>
+    </table>
+
+    <a th:if="${pageInfo.hasPrevious()}"
+       th:href="@{search(page=${pageInfo.number-1<0}?0:${pageInfo.number-1})}"
+       class="btn btn-default">上一页</a>
+    <a th:if="${pageInfo.hasNext()}"
+       th:href="@{search(page=${pageInfo.number}+1)}"
+       class="btn btn-default">下一页</a>
+
+    <button type="button" id="add" class="btn btn-info">新增</button>
+    <button type="button" id="mod" class="btn btn-info">修改</button>
+    <button type="button" id="del" class="btn btn-info">删除</button>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ch" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{'/css/amazeui.min.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/petshow.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/animate.min.css'}">
+    <script th:src="@{'/js/jquery.min.js'}"></script>
+    <script th:src="@{'/js/amazeui.min.js'}" ></script>
+    <script th:src="@{'/js/countUp.min.js'}" ></script>
+    <script th:src="@{'/js/amazeui.lazyload.min.js'}" ></script>
+    <script th:src="@{'/js/petshow.js'}" ></script>
+    <title>商品详情</title>
+</head>
+<body style="position: absolute;width: 100%;height: 100%;">
+
+
+<div class="am_tuya">
+    <div class="am_tuya_user">
+        <div class="am_tuya_user_info">
+            <div class="am_tuya_user_info_name">用品：<span th:text="${supplyInfo.name}"></span></div>
+
+        </div>
+    </div>
+
+    <div class="am_tuya_content">
+        <div class="am_tuya_content_l">
+            <div class="am_albums">
+                <img th:src="${supplyInfo.img}" style="width: 100%;height: 100%;object-fit:cover;" alt="">
+            </div>
+            <div class="am_tuya_more">
+                <div class="am_tuya_oneword"></div>
+
+                <form action="addmsg" method="post">
+                    内容：<textarea name="content" rows="5" cols="60"></textarea><br>
+                    <input type="submit" value="提交">
+                    <input type="hidden" name="supplyId" th:value="${supplyInfo.id}">
+
+                </form>
+
+                <div th:each="msg,s:${messageList}">
+                    <div class="am_tuya_comment">
+                        <div class="am_tuya_comment_user">
+                            <div class="am_tuya_comment_user_l" >
+                                <img alt="" th:src="${msg.img}">
+                                <span th:text="${msg.username}"></span>
+                                &nbsp&nbsp
+                                <span th:text="${msg.time}"></span>
+                            </div>
+                            <div class="am_tuya_comment_text" th:text="${msg.content}"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="am_tuya_content_r">
+            <ul class="am_tuya_r_info">
+                <li><i class="am-icon-heart"></i><span>10 人喜欢</span></li>
+                <li><i class="am-icon-comments"></i><span th:each="msg,s:${messageList}" th:text="${s.count}">条讨论</span></li>
+                <li><i class="am-icon-eye"></i><span>126 次查看</span></li>
+                <li><i class="am-icon-clock-o"></i><span>发布 2021.10.12</span></li>
+            </ul>
+            <ul class="am_tuya_tag">
+                <li><span class="am_tuya_tag_title">价格：</span></li>
+                <li style="color: gold;font-size: 24px;font-weight: bold;text-align: right" th:text="${supplyInfo.price}">
+                </li>
+
+            </ul>
+            <div class="page_hot">
+                <div><a th:href="@{~/order/addordSy(id=${supplyInfo.id})}"><button class="button1">购买</button></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

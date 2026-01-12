@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ch" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{'/css/amazeui.min.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/petshow.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/animate.min.css'}">
+    <script th:src="@{'/js/jquery.min.js'}"></script>
+    <script th:src="@{'/js/amazeui.min.js'}" ></script>
+    <script th:src="@{'/js/countUp.min.js'}" ></script>
+    <script th:src="@{'/js/amazeui.lazyload.min.js'}" ></script>
+    <script th:src="@{'/js/petshow.js'}" ></script>
+    <title>首页</title>
+
+</head>
+<body style="position: absolute;width: 100%;height: 100%;">
+
+<div data-am-tabs class="am-tabs am-tabs-d2 am_news_tab" >
+
+    <div class="am-tabs-bd am_bdfw" >
+
+        <div class="am-tab-panel am-fade am-in am-active" id="tab1" >
+            <div class="am-g dis_line" >
+
+                <div class="am-u-sm-6 am_bdfw_block" th:each="petList,s:${petList}">
+                    <div class="am_bdfw_block_l">
+                        <div class="am_bdfw_block_l_info">
+                            <div class="am_bdfw_block_l_info_l"><img th:src="${petList.getImg()}" alt="" style="width: 50px;height: 50px;"></div>
+                            <div class="am_bdfw_block_l_info_r">
+                                <a th:href="@{~/supply/supplyInfo(id=${petList.id})}"><span th:text="${petList.name}"></span></a>
+                                价格: <span class="am_bdfw_block_l_info_tel" th:text="${petList.price}"><a th:href="@{~/pet/petInfo(id=${petList.id})}"></a></span>
+                            </div>
+                        </div>
+                        <div class="am_bdfw_block_b">
+                            <div> <i>●</i>描述： 1111111</div>
+
+                        </div>
+                    </div>
+                    <a th:href="@{~/pet/petInfo(id=${petList.id})}" class="am_bdfw_block_r" ><i class="am-icon-ellipsis-v"></i> <i class="am-icon-chevron-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

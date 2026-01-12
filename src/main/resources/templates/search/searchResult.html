@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ch" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/amazeui.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/petshow.css}" >
+    <link th:href="@{/css/animate.min.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/aa.css}">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/amazeui.min.js}" ></script>
+    <script th:src="@{/js/countUp.min.js}" ></script>
+    <script th:src="@{/js/amazeui.lazyload.min.js}" ></script>
+    <script th:src="@{/js/petshow.js}" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" th:href="@{/css/style_3.css}">
+    <title>首页</title>
+</head>
+<body style="position: absolute;width: 100%;height: 100%;">
+
+<div style="margin-top: 150px;"></div>
+
+
+
+<section class="wrapper">
+    <!-- Row title -->
+    <main class="row title" >
+        <ul>
+            <li>宠物ID</li>
+            <li>种类名称</li>
+            <li>宠物生日</li>
+            <li>宠物年龄</li>
+            <li>宠物价格</li>
+        </ul>
+    </main>
+
+
+    <section class="row-fadeIn-wrapper" th:each="pet,s:${petList}">
+        <article class="row fadeIn nfl">
+            <ul>
+                <li th:text="${pet.id}"></li>
+                <li th:text="${pet.name}"></li>
+                <li th:text="${pet.birth}"></li>
+                <li th:text="${pet.age}"></li>
+                <li th:text="${pet.price}"></li>
+            </ul>
+            <ul class="more-content">
+                <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First place wins $100,000.00. Good luck!</li>
+            </ul>
+        </article>
+    </section>
+</section>
+
+</body>
+</html>

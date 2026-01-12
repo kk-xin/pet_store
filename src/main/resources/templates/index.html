@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>登录页面</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/amazeui.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/petshow.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/animate.min.css'}">
+  <script th:src="@{'/js/jquery.min.js'}"></script>
+  <script th:src="@{'/js/amazeui.min.js'}"></script>
+  <script th:src="@{'/js/amazeui.js'}"></script>
+<!--  <script th:src="@{'/js/countUp.min.js'}"></script>-->
+  <script th:src="@{'/js/petshow.js'}"></script>
+  <script th:src="@{'/js/md5.min.js'}"></script>
+  <!------------ Owl-Carousel ------------>
+  <script th:src="@{'/js/owl.carousel.min.js'}"></script>
+  <!--------------------- AOS js Library---------------->
+  <script th:src="@{'/js/aos.js'}"></script>
+  <!--Custom Javascript file-->
+  <script th:src="@{'/js/main.js'}"></script>
+  <!--------------------- login---------------->
+  <script th:src="@{'/js/login.js'}"></script>
+  <script th:src="@{'/js/amazeui.lazyload.min.js'}"></script>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/main.css'}">
+  <script th:src="@{'/js/petshow.js'}" ></script>
+  <style>
+    .midlle_one{
+      width:610px;
+      height: 250px;
+      margin: 0 auto;
+    }
+    .midlle_one table{
+      border: gray solid 0.1px;
+      width: 600px;
+      height: 150px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .midlle_one table td{
+      text-align: center;
+    }
+
+    .midlle{
+      width:  840px;
+      height: 300px;
+      margin-top: 50px;
+      padding-top: 50px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/resume.css'}">
+
+  <!-- Font Awesome Icons-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/all.css'}">
+
+  <!------------ Owl-Carousel ------------>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.carousel.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.theme.default.min.css'}">
+
+
+  <!--------------------- AOS Library---------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/aos.css'}">
+
+  <!--Custom Style-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/Style.css'}">
+
+  <!------------- Login -------------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/style2.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/iconfont.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/resume.css'}">
+
+  <!-- Font Awesome Icons-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/all.css'}">
+
+  <!------------ Owl-Carousel ------------>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.carousel.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.theme.default.min.css'}">
+
+
+  <!--------------------- AOS Library---------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/aos.css'}">
+
+  <!--Custom Style-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/Style.css'}">
+
+  <!------------- Login -------------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/style2.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/iconfont.css'}">
+
+</head>
+<body>
+<header class="am-topbar am-topbar-inverse">
+  <div class="amz-container">
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#doc-topbar-collapse-5'}">
+            <span class="am-sr-only">
+                导航切换
+            </span>
+      <span class="am-icon-bars">
+            </span>
+    </button>
+    <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-5">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+        <li class="am-active">
+          <a href="/index">
+            首页
+          </a>
+        </li>
+        <li>
+          <a href="supply/supplyList" target="frame1">
+            宠物用品
+          </a>
+        </li>
+        <li>
+          <a href="pet/petList" target="frame1">
+            宠物展示
+          </a>
+        </li>
+        <li>
+          <a href="/search/search" target="frame1">
+            搜索
+          </a>
+        </li>
+        <li>
+          <a href="/order/cart" target="frame1">
+            购物车
+          </a>
+        </li>
+        <li class="am-dropdown" data-am-dropdown="" th:if="${user.roles[0].code} ne 'ROLE_GUEST'">
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+            管理中心&nbsp∇
+          </a>
+          <ul class="am-dropdown-content">
+            <th:li th:if="${user.roles[0].code} eq 'ROLE_ADMIN'">
+              <a href="user/search" target="frame1" style="color: #8C8C8C;font-size: 12px;display: block;padding: 6px 20px;font-weight: 400;white-space: nowrap;">
+                管理用户
+              </a>
+            </th:li>
+            <li>
+              <a  href="pet/search" target="frame1">
+                管理宠物
+              </a>
+            <li>
+            <li>
+              <a href="supply/search" target="frame1">
+                管理商品
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div style="width: 200px;height: 50px;float: right;" th:if="${user.username} ne ''">
+        <a href="/user/center" target="frame1" style="margin-top: 25px;">
+          欢迎你，<span th:text="${user.username}"></span>
+          <img th:src="${user.img}" style="height: 50px;width:50px;border-radius:50%;margin-left:15px;margin-top: 0px">
+        </a>
+
+        <a href="#" th:if="${user.username} eq ''">
+          登录
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<iframe src="pet/petListIndex" name="frame1"  id="frame1"  width="100%" onload="this.height=frame1.document.body.scrollHeight"  ></iframe>
+
+<footer class="am_footer" style="position:relative; top:0px; left:0px;">
+  <div class="am_footer_con">
+    <div class="am_footer_link">
+      <span>关于宠物管理系统</span>
+      <ul>
+        <li><a href="/aboutus" target="frame1">关于我们</a></li>
+        <li><a href="/aboutus" target="frame1">发展历程</a></li>
+        <li><a href="/aboutus" target="frame1">友情链接</a></li>
+      </ul>
+    </div>
+
+
+    <div class="am_footer_don">
+      <dl>
+        <dt><img th:src="@{'/img/petlogo.png'}" alt=""></dt>
+        <dd>一起Show我们的爱宠吧！<br><br>
+          <a href="###" class="footdon_pg ">
+            <div class="foot_d_pg am-icon-apple "> App store</div>
+          </a><a href="###" class="footdon_az animated">
+            <div class="foot_d_az am-icon-android "> Android</div>
+          </a></dd>
+
+      </dl>
+    </div>
+    <div class="am_footer_erweima">
+      <div class="am_footer_weixin"><img th:src="@{'/img/v1.jpeg'}" alt="">
+
+      </div>
+      <div class="am_footer_ddon"><img th:src="@{'/img/v2.jpeg'}" alt="">
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

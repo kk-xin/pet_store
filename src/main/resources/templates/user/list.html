@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>员工管理</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{'/bootstrap/css/bootstrap.css'}">
+    <link rel="stylesheet" th:href="@{'/css/style.css'}">
+    <script type="text/javascript" th:src="@{'/js/jquery-3.6.0.js'}"></script>
+
+<!--    <script>-->
+<!--        $(document).ready(function () {-->
+<!--            $("#add").click(function () {-->
+<!--                location.href = "add";-->
+<!--            })-->
+
+<!--            var id = -1;-->
+<!--            $(".data").click(function () {-->
+<!--                $(".data").removeClass("selected");-->
+<!--                $(this).addClass("selected");-->
+<!--                id = $(this).data("id");-->
+<!--            })-->
+
+<!--            $("#mod").click(function () {-->
+<!--                if (id > -1) {-->
+<!--                    location.href = "mod?id=" + id;-->
+<!--                } else {-->
+<!--                    alert("未选中数据");-->
+<!--                }-->
+<!--            })-->
+
+<!--            $("#del").click(function () {-->
+<!--                if (id > -1) {-->
+<!--                    location.href = "del?id=" + id;-->
+<!--                } else {-->
+<!--                    alert("未选中数据");-->
+<!--                }-->
+<!--            })-->
+
+<!--            $("#resetPwd").click(function () {-->
+<!--                if (id > -1) {-->
+<!--                    location.href = "resetPwd?id=" + id;-->
+<!--                } else {-->
+<!--                    alert("未选中数据");-->
+<!--                }-->
+<!--            })-->
+
+<!--        })-->
+
+<!--    </script>-->
+
+
+</head>
+<body style="position: absolute;width: 100%;height: 100%;">
+<div style="height: 100px;width: 100%"></div>
+
+
+<div id="container" style="width: 80%">
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <th>序号</th>
+            <th>用户名</th>
+            <th>角色</th>
+            <th>操作</th>
+        </tr>
+        <tr class="data" th:each="user,s:${pageInfo.content}"
+            th:data-id="${user.id}">
+            <td th:text="${s.count}"></td>
+            <td th:text="${user.username}"></td>
+            <td><span th:each="role:${user.roles}" th:text="${role.name}"
+                      class="label label-success"
+                      style="margin-right: 5px"></span></td>
+            <td>
+                <a href="/user/add2"><button type="button" id="add" class="btn btn-info">新增</button></a>&nbsp&nbsp
+                <a th:href="@{~/user/modu2(id=${user.id})}"><button type="button" id="mod" class="btn btn-info">修改</button></a>&nbsp&nbsp
+                <a th:href="@{~/user/del(id=${user.id})}"><button type="button" id="del" class="btn btn-info">删除</button></a>
+            </td>
+        </tr>
+    </table>
+
+    <a th:if="${pageInfo.hasPrevious()}"
+       th:href="@{search(page=${pageInfo.number-1<0}?0:${pageInfo.number-1})}"
+       class="btn btn-default">上一页</a>
+    <a th:if="${pageInfo.hasNext()}"
+       th:href="@{search(page=${pageInfo.number}+1)}"
+       class="btn btn-default">下一页</a>
+
+
+
+</div>
+
+
+</body>
+</html>

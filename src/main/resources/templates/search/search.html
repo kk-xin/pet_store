@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ch" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/amazeui.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/petshow.css}" >
+    <link th:href="@{/css/animate.min.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/aa.css}">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/amazeui.min.js}" ></script>
+    <script th:src="@{/js/countUp.min.js}" ></script>
+    <script th:src="@{/js/amazeui.lazyload.min.js}" ></script>
+    <script th:src="@{/js/petshow.js}" ></script>
+    <title>首页</title>
+
+</head>
+<body th:style="'height:100%;width:100%;background-image:url(/img/cat1.jpg);background-size: 100% 100%;position: absolute;'">
+
+
+<div class="midlle_one" >
+    <div style="text-align: center;height: 20%;width:100%;margin-bottom:0%; "><img th:src="@{'/img/petlogo.png'}" height="100%"></div>
+    <div style="font-family: 'Microsoft YaHei';font-size: 50px;text-align: center;color: whitesmoke;">搜索宠物种类</div>
+    <div style="width: 100%; text-align:center;vertical-align:middle;">
+        <form action="result" method="post">
+            <input type="text" name="petName" style="width: 70%;border-radius: 20px;height: 10%;align-items: center;font-size: 30px;opacity:0.4;">
+            <input type="submit" value="提交" style="height: 10%;width:5%;opacity:0.4;border-radius: 20px;font-size: 30px;">
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

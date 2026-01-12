@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>宠物管理</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{'/bootstrap/css/bootstrap.css'}">
+    <link rel="stylesheet" th:href="@{'/css/style.css'}">
+    <script type="text/javascript" th:src="@{'/js/jquery-3.6.0.js'}"></script>
+
+<!--    <script>-->
+<!--        $(document).ready(function () {-->
+<!--            $("#add").click(function () {-->
+<!--                location.href = "add";-->
+<!--            })-->
+
+<!--            var id = -1;-->
+<!--            $(".data").click(function () {-->
+<!--                $(".data").removeClass("selected");-->
+<!--                $(this).addClass("selected");-->
+<!--                id = $(this).data("id");-->
+<!--            })-->
+
+<!--            $("#mod").click(function () {-->
+<!--                if (id > -1) {-->
+<!--                    location.href = "mod?id=" + id;-->
+<!--                } else {-->
+<!--                    alert("未选中数据");-->
+<!--                }-->
+<!--            })-->
+
+<!--            $("#del").click(function () {-->
+<!--                if (id > -1) {-->
+<!--                    location.href = "del?id=" + id;-->
+<!--                } else {-->
+<!--                    alert("未选中数据");-->
+<!--                }-->
+<!--            })-->
+
+<!--            $("#resetPwd").click(function () {-->
+<!--                if (id > -1) {-->
+<!--                    location.href = "resetPwd?id=" + id;-->
+<!--                } else {-->
+<!--                    alert("未选中数据");-->
+<!--                }-->
+<!--            })-->
+
+<!--        })-->
+
+<!--    </script>-->
+</head>
+<body style="position: absolute;width: 100%;height: 100%">
+<div style="height: 100px;width: 100%"></div>
+
+<div id="container" style="width: 80%">
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <th>序号</th>
+            <th>宠物名</th>
+            <th>生日</th>
+            <th>年龄</th>
+            <th>体重</th>
+            <th>价格</th>
+            <th>操作</th>
+        </tr>
+        <tr class="data" th:each="pet,s:${pageInfo.content}"
+            th:data-id="${pet.id}">
+            <td th:text="${s.count}"></td>
+            <td th:text="${pet.name}"></td>
+            <td th:text="${pet.birth}"></td>
+            <td th:text="${pet.age}"></td>
+            <td th:text="${pet.weight}"></td>
+            <td th:text="${pet.price}"></td>
+            <td>
+                <a href="/pet/add"><button type="button" id="add" class="btn btn-info">新增</button></a>
+                <a th:href="@{/pet/modp(id=${pet.id})}"><button type="button" id="mod" class="btn btn-info">修改</button></a>
+                <a th:href="@{/pet/del(id=${pet.id})}"><button type="button" id="del" class="btn btn-info">删除</button></a>
+            </td>
+
+        </tr>
+    </table>
+
+    <a th:if="${pageInfo.hasPrevious()}"
+       th:href="@{search(page=${pageInfo.number-1<0}?0:${pageInfo.number-1})}"
+       class="btn btn-default">上一页</a>
+    <a th:if="${pageInfo.hasNext()}"
+       th:href="@{search(page=${pageInfo.number}+1)}"
+       class="btn btn-default">下一页</a>
+
+
+
+</div>
+
+
+</body>
+</html>

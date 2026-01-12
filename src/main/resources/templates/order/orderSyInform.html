@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ch" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{'/css/amazeui.min.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/petshow.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/animate.min.css'}">
+    <script th:src="@{'/js/jquery.min.js'}"></script>
+    <script th:src="@{'/js/amazeui.min.js'}" ></script>
+    <script th:src="@{'/js/countUp.min.js'}" ></script>
+    <script th:src="@{'/js/amazeui.lazyload.min.js'}" ></script>
+    <script th:src="@{'/js/petshow.js'}" ></script>
+    <title>购买商品</title>
+
+</head>
+<body style="position: absolute;width: 100%;height: 100%;">
+
+<div class="am-g bdfw_nr">
+
+    <div class="am-u-sm-12">
+            <div class="bdfw_nr_block">
+                <div class="bdfw_nr_block_l">
+                    <div class="bdfw_nr_title">商品名称：<span th:text="${supplyInfo.name}"></span></div>
+                    <div class="bdfw_nr_brief_info">
+                        订单号：<span class="bdfw_nr_brief_moreinfo" th:text="${newOrder.id}"></span>
+                    </div>
+                    <div class="bdfw_nr_brief_address">数量：1</div>
+                    <div class="bdfw_nr_brief_address">价格：<div style="color: gold;font-size: 24px;font-weight: bold;"><span th:text="${supplyInfo.price}"></span></div></div>
+                    <div class="bdfw_nr_smalltitle">更多信息</div>
+                    <div class="bdfw_nr_brief_info_nr">
+                        <div class="bdfw_nr_brief_info_nr">
+                            <span>创建时间：</span>
+                            <span th:text="${nowTime}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bdfw_nr_block_r">
+
+                    <div class="bdfw_nr_block_r_info">
+                        <div style="margin-top: 200px;"><a href="/order/cart"><button class="button1">加入购物车</button></a></div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>

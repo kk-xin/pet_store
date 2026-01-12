@@ -1,0 +1,24 @@
+.midlle_one{
+    width:610px;
+    height: 250px;
+    margin: 0 auto;
+}
+.midlle_one table{
+    border: gray solid 0.1px;
+    width: 600px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.midlle_one table td{
+    text-align: center;
+}
+
+ .midlle{
+     width:  840px;
+     height: 300px;
+     margin-top: 50px;
+     padding-top: 50px;
+     margin: 0 auto;
+ }
+

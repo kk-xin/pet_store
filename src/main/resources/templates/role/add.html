@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>角色管理-新增角色</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{'/bootstrap/css/bootstrap.css'}">
+    <script type="text/javascript" th:src="@{'/js/jquery-3.6.0.js'}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#save").click(function () {
+                var name = $("[name='name']").val();
+                var code = $("[name='code']").val();
+                var permissions = $("[name=permissions]").val();
+                var permissionsParam = "";
+                for (var i = 0; i < permissions.length; i++) {
+                    permissionsParam += "&permissions[" + i + "].id=" + permissions[i]
+                }
+                var url= encodeURI("add1?name=" + name + "&code=" + code + permissionsParam, "utf-8");
+                location.href = url;
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div id="container">
+
+    <ol class="breadcrumb">
+        <li><a th:href="@{/index}" target="_parent">首页</a></li>
+        <li><a th:href="@{search}">角色管理</a></li>
+        <li class="active">新增角色</li>
+    </ol>
+
+    <form action="add1" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="roleName">角色名</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="roleName"
+                       name="name"
+                       placeholder="请输入角色名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="roleCode">code</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="roleCode"
+                       name="code" placeholder="请输入code">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="permissions">权限</label>
+            <div class="col-sm-10">
+                <select name="permissions" class="form-control" multiple id="permissions"
+                        data-placeholder="选择权限" th:size="${permissionList.size()}">
+                    <option th:each="permission:${permissionList}" th:text="${permission.name}"
+                            th:value="${permission.id}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">保 存</button>
+                <button type="reset" class="btn btn-primary">重 置</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

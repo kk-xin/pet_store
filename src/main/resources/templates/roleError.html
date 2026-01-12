@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>权限认证失败</title>
+    <link rel="stylesheet"
+          th:href="@{'/bootstrap/css/bootstrap.css'}"/>
+</head>
+<body>
+
+<div id="container">
+    <h2>无权访问</h2>
+    <h3 class="font-bold">您没有权限访问这个页面</h3>
+
+    <div class="error-desc">
+        请联系管理员...
+        <br/>或者以对应身份访问
+        <br/><a href="/index" class="btn btn-primary m-t">登录</a>
+    </div>
+</div>
+
+
+</body>
+</html>

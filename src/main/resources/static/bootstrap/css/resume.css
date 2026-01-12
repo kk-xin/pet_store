@@ -1,0 +1,82 @@
+.body{
+    margin:0%;
+    /*box-sizing: boder-box;*/
+    overflow-x:hidden;
+    
+}
+
+.resume{
+    padding: 1%;
+    /*position:float;*/
+    border:1px solid;
+    border-radius: 2rem;
+    margin:5%;
+    margin-bottom: 1%;
+    background:linear-gradient(120deg, #fdfbfb4f 0%, #ebedee3b 100%);
+    color: black;
+}
+
+.resume .para{
+    font-size:24px;
+    color:var(--text--gray);
+    font-family: "仿宋";
+}
+a{
+    text-decoration: none;
+    color:var(--midnight);
+}
+
+.resume dl{
+    font-size:20px;
+    color:var(--bg-color);
+}
+h1{
+    color:var(--bg-color);
+    text-align:center;
+    font-family: "楷体";
+}
+h2{
+    color:var(--bg-color);
+}
+
+:root{
+    /* Theme colors*/
+    --text--gray:#313a42;
+    --text-light:#4e4e4eda;
+    --bg-color:#0f0f0f;
+    --white:#ffffff;
+    --midnight:#104f55;
+
+    /* gradient color*/
+    --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+p{
+    font-family: "仿宋";
+}
+
+.music{
+    position: relative;
+    margin-left: 40%;
+    margin-top: 1%;
+}
+
+
+.basic-info{
+    /*position:float;*/
+    margin-left: 2%;
+}
+
+.self-in{
+    padding: 5%;
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+.self-photo{
+    float:right;
+    width: 9%;
+    position: absolute;
+    top:26%;
+    right:10%;
+}
+

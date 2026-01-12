@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>商品管理-修改商品信息</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{'/bootstrap/css/bootstrap.css'}">
+    <script type="text/javascript" th:src="@{'/js/jquery-3.6.0.js'}"></script>
+</head>
+<body style="position: absolute;width: 85%;height: 100%;">
+<div style="height: 100px;width: 100%"></div>
+
+<div id="container">
+    <form action="mods" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <input type="hidden" name="id" th:value="${supplyInfo.id}"/>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="SupplyName">商品名</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="SupplyName"
+                       name="supplyname"
+                       placeholder="请输入商品名" th:value="${supplyInfo.name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="date">生产日期</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="date"
+                       name="date" placeholder="请输入生产日期"
+                       th:value="${supplyInfo.date}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="address">生产地</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="address"
+                       name="address"
+                       placeholder="请输入生产地" th:value="${supplyInfo.address}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="price">价格</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="price"
+                       name="price"
+                       placeholder="请输入价格" th:value="${supplyInfo.price}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="inventory">库存</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="inventory"
+                       name="inventory"
+                       placeholder="请输入库存" th:value="${supplyInfo.inventory}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="img">头像</label>
+            <div class="col-sm-10">
+                <input type="file" id="img" name="img" th:value="${supplyInfo.img}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary" id="save">保 存</button>
+                <button type="reset" class="btn btn-primary">重 置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--<div style="height: 400px"></div>-->
+</body>
+</html>

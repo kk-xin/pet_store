@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ch" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/amazeui.min.css}" >
+    <link rel="stylesheet" th:href="@{/css/petshow.css}" >
+    <link th:href="@{/css/animate.min.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/aa.css}">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/amazeui.min.js}" ></script>
+    <script th:src="@{/js/countUp.min.js}" ></script>
+    <script th:src="@{/js/amazeui.lazyload.min.js}" ></script>
+    <script th:src="@{/js/petshow.js}" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" th:href="@{/css/style_3.css}">
+    <title>首页</title>
+</head>
+<body style="position: absolute;width: 100%;height: 100%;">
+
+<div style="margin-top: 150px;"></div>
+
+
+
+<section class="wrapper">
+    <!-- Row title -->
+    <main class="row title" >
+        <ul>
+            <li>订单ID</li>
+            <li>物品名称</li>
+            <li>订单时间</li>
+            <li>订单价格</li>
+            <li>购买者</li>
+        </ul>
+    </main>
+
+    <div th:each="order,s:${orderList}">
+    <section class="row-fadeIn-wrapper" th:if="${order.getBuy()=='1'}">
+        <article class="row fadeIn nfl">
+            <ul>
+                <li th:text="${order.id}"></li>
+                <li th:if="${order.getOpet()!=null}" th:text="${order.getOpet().name}"></li>
+                <li th:if="${order.getOsupply()!=null}" th:text="${order.getOsupply().name}"></li>
+                <li th:text="${order.time}"></li>
+                <li th:text="${order.price}"></li>
+                <li th:text="${order.getOuser().username}"></li>
+            </ul>
+        </article>
+    </section>
+    </div>
+</section>
+
+</body>
+</html>

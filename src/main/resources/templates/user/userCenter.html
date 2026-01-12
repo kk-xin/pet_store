@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ch" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{'/css/amazeui.min.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/petshow.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/animate.min.css'}">
+    <script th:src="@{'/js/jquery.min.js'}"></script>
+    <script th:src="@{'/js/amazeui.min.js'}" ></script>
+    <script th:src="@{'/js/countUp.min.js'}" ></script>
+    <script th:src="@{'/js/amazeui.lazyload.min.js'}" ></script>
+    <script th:src="@{'/js/petshow.js'}" ></script>
+    <title>商品详情</title>
+</head>
+<body style="position: absolute;width: 100%;">
+<div class="am_user">
+    <div class="am_user_head">
+        <div class="am_user_head_content">
+            <div class="am_user_head_l">
+                <div class="am_user_head_l_ico"> <img th:src="${userimg}" alt="" style="height: 65px;"></div>
+                <div class="am_user_head_l_ico_info">
+                    <span class="am_user_head_l_name" th:text="${username}"></span>
+                    <span class="am_user_head_l_name" ><a href="/logout">注销</a></span>
+                </div>
+            </div>
+            <div class="am_user_head_r">
+                <div class="am_user_head_r_tag">
+
+<span>
+    <i class="am-icon-star"></i> 收藏：<span class="am_user_head_unm">6</span>
+</span>
+                    <span>
+    <i class="am-icon-user"></i> 关注：<span class="am_user_head_unm">6</span>
+</span>
+                    <span>
+    <i class="am-icon-heart"></i>喜欢：<span class="am_user_head_unm">60</span>
+</span>
+                </div>
+                <div style="margin-left:60px;margin-top: 50px;">
+                    <a th:href="@{~/user/modu(id=${userid})}"><button class="button2">修改个人信息</button></a>
+<!--                    <a th:href="@{~/user/resetPwd(id=${userid})}"><button class="button2">重置密码</button></a>-->
+                    <a href="/order/findOrder"><button class="button2">查看订单</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="banner_navbg">
+    <div class="am-g">
+        <div class="banner_nav">
+            <span class="am-icon-caret-right">
+                图片展示
+            </span>
+
+        </div>
+    </div>
+</div>
+<div class="am-g am-imglist">
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-6 am-gallery-default">
+        <li>
+            <div class="am-gallery-item am_list_block">
+                <a href="###" class="am_img_bg">
+                    <img th:src="@{'/img/d1.jpg'}" alt=""/>
+                </a>
+            </div>
+
+        </li>
+        <li>
+            <div class="am-gallery-item am_list_block">
+                <a href="###" class="am_img_bg">
+                    <img th:src="@{'/img/c1.jpg'}" alt=""/>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="am-gallery-item am_list_block">
+                <a href="###" class="am_img_bg">
+                    <img th:src="@{'/img/d2.jpg'}" alt=""/>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="am-gallery-item am_list_block">
+                <a href="###" class="am_img_bg">
+                    <img th:src="@{'/img/c2.jpg'}" alt=""/>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="am-gallery-item am_list_block">
+                <a href="###" class="am_img_bg">
+                    <img th:src="@{'/img/c3.jpg'}" alt=""/>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="am-gallery-item am_list_block">
+                <a href="###" class="am_img_bg">
+                    <img th:src="@{'/img/c4.jpg'}" alt=""/>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+    console.log($.AMUI);
+    $(function(){
+        if ($(window).width() < 600 ) {
+            $('.am_list_item_text').each(
+                function(){
+                    if($(this).text().length >= 26){
+                        $(this).do($(this).text().substr(0,26)+'...');
+                    }});}[]
+
+    });
+
+</script>
+</body>
+</html>

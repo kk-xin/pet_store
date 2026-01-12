@@ -1,0 +1,38 @@
+# Ignore build and generated files
+/target/
+
+# Keep mvnw wrapper jar if present in repo
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# STS/Eclipse
+.classpath
+.project
+.settings/
+
+# NetBeans
+/nbproject/
+
+# macOS
+.DS_Store
+
+# Logs and env
+*.log
+.env
+
+# Optional: local maven repo (uncomment if you don't want to include user's .m2)
+# /.m2/
+
+# Misc
+HELP.md
+
+# Ignore static PNG images (do not commit large photos)
+/src/main/resources/static/**/img/**/*.png
+/src/main/resources/static/**/img/*.png
+**/*.png

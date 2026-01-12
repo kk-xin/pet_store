@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>商品管理</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{'/bootstrap/css/bootstrap.css'}">
+    <link rel="stylesheet" th:href="@{'/css/style.css'}">
+    <script type="text/javascript" th:src="@{'/js/jquery-3.6.0.js'}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#add").click(function () {
+                location.href = "add";
+            })
+
+            var id = -1;
+            $(".data").click(function () {
+                $(".data").removeClass("selected");
+                $(this).addClass("selected");
+                id = $(this).data("id");
+            })
+
+            $("#mod").click(function () {
+                if (id > -1) {
+                    location.href = "modu?id=" + id;
+                } else {
+                    alert("未选中数据");
+                }
+            })
+
+            $("#del").click(function () {
+                if (id > -1) {
+                    location.href = "del?id=" + id;
+                } else {
+                    alert("未选中数据");
+                }
+            })
+
+            $("#resetPwd").click(function () {
+                if (id > -1) {
+                    location.href = "resetPwd?id=" + id;
+                } else {
+                    alert("未选中数据");
+                }
+            })
+
+        })
+
+    </script>
+
+
+</head>
+<body style="position: absolute;width: 100%;height: 100%">
+
+<div style="height: 100px;width: 100%"></div>
+
+
+
+
+<div id="container" style="width: 80%">
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <th>序号</th>
+            <th>商品名</th>
+            <th>生产日期</th>
+            <th>生产地址</th>
+            <th>价格</th>
+            <th>库存</th>
+            <th>操作</th>
+        </tr>
+        <tr class="data" th:each="supply,s:${pageInfo.content}"
+            th:data-id="${supply.id}">
+            <td th:text="${s.count}"></td>
+            <td th:text="${supply.name}"></td>
+            <td th:text="${supply.date}"></td>
+            <td th:text="${supply.address}"></td>
+            <td th:text="${supply.price}"></td>
+            <td th:text="${supply.inventory}"></td>
+            <td>
+                <a href="/supply/add"><button type="button" id="add" class="btn btn-info">新增</button></a>&nbsp&nbsp
+                <a th:href="@{/supply/mods(id=${supply.id})}"><button type="button" id="mod" class="btn btn-info">修改</button></a>&nbsp&nbsp
+                <a th:href="@{/supply/del(id=${supply.id})}"><button type="button" id="del" class="btn btn-info">删除</button></a>
+            </td>
+
+        </tr>
+    </table>
+
+    <a th:if="${pageInfo.hasPrevious()}"
+       th:href="@{search(page=${pageInfo.number-1<0}?0:${pageInfo.number-1})}"
+       class="btn btn-default">上一页</a>
+    <a th:if="${pageInfo.hasNext()}"
+       th:href="@{search(page=${pageInfo.number}+1)}"
+       class="btn btn-default">下一页</a>
+
+<!--    <a href="/supply/add"><button type="button" id="add" class="btn btn-info">新增</button></a>-->
+<!--    <button type="button" id="mod" class="btn btn-info">修改</button>-->
+<!--    <button type="button" id="del" class="btn btn-info">删除</button>-->
+    <!-- <button type="button" id="resetPwd" class="btn btn-info">重置密码</button>-->
+
+</div>
+
+
+</body>
+</html>

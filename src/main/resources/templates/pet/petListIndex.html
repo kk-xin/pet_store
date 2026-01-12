@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>登录页面</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/amazeui.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/petshow.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/animate.min.css'}">
+  <script th:src="@{'/js/jquery.min.js'}"></script>
+  <script th:src="@{'/js/amazeui.min.js'}"></script>
+  <script th:src="@{'/js/amazeui.js'}"></script>
+<!--  <script th:src="@{'/js/countUp.min.js'}"></script>-->
+  <script th:src="@{'/js/petshow.js'}"></script>
+  <script th:src="@{'/js/md5.min.js'}"></script>
+  <!------------ Owl-Carousel ------------>
+  <script th:src="@{'/js/owl.carousel.min.js'}"></script>
+  <!--------------------- AOS js Library---------------->
+  <script th:src="@{'/js/aos.js'}"></script>
+  <!--Custom Javascript file-->
+  <script th:src="@{'/js/main.js'}"></script>
+  <!--------------------- login---------------->
+  <script th:src="@{'/js/login.js'}"></script>
+  <script th:src="@{'/js/amazeui.lazyload.min.js'}"></script>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/main.css'}">
+    <link rel="stylesheet" th:href="@{'/css/amazeui.min.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/petshow.css'}" >
+    <link rel="stylesheet" th:href="@{'/css/animate.min.css'}">
+    <script th:src="@{'/js/jquery.min.js'}"></script>
+    <script th:src="@{'/js/amazeui.min.js'}" ></script>
+    <script th:src="@{'/js/countUp.min.js'}" ></script>
+    <script th:src="@{'/js/amazeui.lazyload.min.js'}" ></script>
+    <script th:src="@{'/js/petshow.js'}" ></script>
+  <style>
+    .midlle_one{
+      width:610px;
+      height: 250px;
+      margin: 0 auto;
+    }
+    .midlle_one table{
+      border: gray solid 0.1px;
+      width: 600px;
+      height: 150px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .midlle_one table td{
+      text-align: center;
+    }
+
+    .midlle{
+      width:  840px;
+      height: 300px;
+      margin-top: 50px;
+      padding-top: 50px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/resume.css'}">
+
+  <!-- Font Awesome Icons-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/all.css'}">
+
+  <!------------ Owl-Carousel ------------>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.carousel.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.theme.default.min.css'}">
+
+
+  <!--------------------- AOS Library---------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/aos.css'}">
+
+  <!--Custom Style-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/Style.css'}">
+
+  <!------------- Login -------------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/style2.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/iconfont.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/resume.css'}">
+
+  <!-- Font Awesome Icons-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/all.css'}">
+
+  <!------------ Owl-Carousel ------------>
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.carousel.min.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/owl.theme.default.min.css'}">
+
+
+  <!--------------------- AOS Library---------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/aos.css'}">
+
+  <!--Custom Style-->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/Style.css'}">
+
+  <!------------- Login -------------------->
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/style2.css'}">
+  <link rel="stylesheet" th:href="@{'/bootstrap/css/iconfont.css'}">
+
+</head>
+<body style="position: relative">
+<div class="get">
+    <div class="am-g">
+        <div class="am-u-lg-12">
+            <div class="get-title">
+                <div class="get_font_center"><img th:src="@{'/img/petlogo.png'}" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="am-g am-imglist">
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-6 am-gallery-default">
+            <li th:each="pet,s:${petList}">
+                <div class="am-gallery-item am_list_block" style="width: 200px;height: 200px">
+                    <a th:href="@{~/pet/petInfo(id=${pet.id})}" class="am_img_bg">
+                        <img class="am_img animated" th:src="@{'/img/loading.gif'}"
+                             th:data-original="${pet.getImg()}" style="width: 100%;height: 100%;object-fit:cover;" alt=""/>
+                    </a>
+                    <div class="am_listimg_info"><span class="am-icon-heart"> 132</span><span class="am-icon-comments"> 67</span>
+                        <span class="am_imglist_time" style="color: gold;font-size: 15px;font-weight: bold;" th:text="${pet.getPrice()}"></span></div>
+                </div>
+            </li>
+    </ul>
+</div>
+</body>
+</html>
