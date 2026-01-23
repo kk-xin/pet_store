@@ -36,3 +36,4 @@ HELP.md
 /src/main/resources/static/**/img/**/*.png
 /src/main/resources/static/**/img/*.png
 **/*.png
+!/assets/**/*.png

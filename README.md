@@ -2,6 +2,8 @@
 
 This repository contains a course/final-project style e-commerce pet store built with Spring Boot, Spring Data JPA and Thymeleaf. The purpose of the repo is to be a clear, presentable demo of a typical Java web application — suitable for browsing on GitHub.
 
+Note: This project was built before AI-assisted UI design became common, so the interface is simple compared to modern AI-designed UIs, but the functionality is complete.
+
 This README is written to help a reader understand the project structure, how to run it for local demo purposes, and how to prepare the repo for sharing on GitHub.
 
 ## Highlights
@@ -80,3 +82,90 @@ mvn spring-boot:run
 - `src/main/resources/templates` — Thymeleaf templates
 - `src/main/resources/static` — CSS/JS/images used by templates
 - `pom.xml` — Maven build file
+
+## System Architecture
+
+```mermaid
+graph TD
+    A[Pet Store System] --> B[User Frontend System];
+    A --> C[Admin Backend System];
+
+    subgraph User Frontend System
+        B --> B1[Login/Register];
+        B --> B2[Profile Management];
+        B --> B3[Product Browsing];
+        B --> B4[Shopping Cart];
+        B --> B5[Product Purchase];
+        B --> B6[Order Management];
+    end
+
+    subgraph Admin Backend System
+        C --> C1[Login];
+        C --> C2[User Management];
+        C --> C3[Product Management];
+        C --> C4[Order Management];
+    end
+```
+
+## Features
+
+The system is primarily divided into two main functional modules: a user-facing frontend and an administrative backend.
+
+### Frontend Features
+
+1. **Login/Register:** Users can register for an account and log in.
+2. **Profile Management:** Users can modify their personal information.
+3. **Product Browsing:** Includes features for product search and browsing by category.
+4. **Shopping Cart:** Users can add products to the shopping cart and purchase items from it.
+5. **Product Purchase:** Users can proceed with the purchase of products.
+6. **Order Management:** Users can delete their own orders.
+
+### Backend (Admin) Features
+
+1. **Login:** Administrators can log in to the admin panel to manage the system.
+2. **User Management:** Administrators can perform CRUD (Create, Read, Update, Delete) operations on user accounts.
+3. **Product Management:** Includes management of pets and pet supplies, with full CRUD functionality for these items.
+4. **Order Management:** Administrators can perform CRUD operations on all orders in the system.
+
+## Database ER Model
+
+![Database ER Model](assets/database_ER_model.png)
+
+This is the database ER model diagram.
+
+## Program Preview (UI in Chinese)
+
+The screenshots below show the core user experience. The interface text is in Chinese, so English captions are provided for clarity.
+
+### Home Page
+
+![Home Page](assets/mainpage.png)
+
+### Login
+
+![Login](assets/login.png)
+
+### Register
+
+![Register](assets/register.jpg)
+
+### Search & Browse Products
+
+![Search](assets/search.jpg)
+
+### Product Detail
+
+![Product Detail](assets/product_detail.png)
+
+### Shopping Cart
+
+![Shopping Cart](assets/cart.png)
+
+### User Profile
+
+![User Profile](assets/profile.png)
+
+### Admin: Add Pet/Product
+
+![Admin Add Pet](assets/pet_add.png)
+
