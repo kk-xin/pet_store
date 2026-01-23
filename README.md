@@ -2,9 +2,9 @@
 
 This repository contains a course/final-project style e-commerce pet store built with Spring Boot, Spring Data JPA and Thymeleaf. The purpose of the repo is to be a clear, presentable demo of a typical Java web application — suitable for browsing on GitHub.
 
-Note: This project was built before AI-assisted UI design became common, so the interface is simple compared to modern AI-designed UIs, but the functionality is complete.
-
 This README is written to help a reader understand the project structure, how to run it for local demo purposes, and how to prepare the repo for sharing on GitHub.
+
+**Note**: This project was built before AI-assisted UI design became common, so the interface is simple compared to modern AI-designed UIs, but the functionality is complete.
 
 ## Highlights
 
